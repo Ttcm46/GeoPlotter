@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GeoPlotter.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            
+            <Button
+                x:Name="Savebtn"
+                Text="Save" 
+                SemanticProperties.Hint="Plotea punto"
+                Clicked="SavedOnCounterClicked"
+                HorizontalOptions="Fill" />
+            <Button
+                x:Name="Loadbtn"
+                Text="Load" 
+                SemanticProperties.Hint="Plotea punto"
+                Clicked="LoadOnCounterClicked"
+                HorizontalOptions="Fill" />
+            <Label
+                x:Name="DataLabel"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Counts the number of times you click"
+                FontSize="32"
+                HorizontalOptions="Center" />   
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

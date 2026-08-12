@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace GeoPlotter.Clases
 {
@@ -40,6 +41,11 @@ namespace GeoPlotter.Clases
                 result += data.toString() + "\n";
             }
             return result;
+        }
+        public string exportJson()
+        {
+            // Serialize the internal list to a formatted JSON string
+            return JsonConvert.SerializeObject(DataList, Formatting.Indented);
         }
     }
 

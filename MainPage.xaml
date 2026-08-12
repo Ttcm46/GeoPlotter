@@ -7,26 +7,61 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            
-            <Button
-                x:Name="Savebtn"
-                Text="Save" 
-                SemanticProperties.Hint="Plotea punto"
-                Clicked="SavedOnCounterClicked"
-                HorizontalOptions="Fill" />
-            <Button
-                x:Name="Loadbtn"
-                Text="Load" 
-                SemanticProperties.Hint="Plotea punto"
-                Clicked="LoadOnCounterClicked"
-                HorizontalOptions="Fill" />
+            <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="10" RowSpacing="10" Padding="10">
+                <HorizontalStackLayout Grid.Row="0" Grid.ColumnSpan="3" Spacing="10">
+                    <Picker x:Name="LabelPicker" Title="Etiquetas:" SelectedIndexChanged="LabelPicker_SelectionChanged">
+                        <Picker.Items>
+                            <x:String>None</x:String>
+                            <x:String>New</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Entry x:Name="NewLabelEntry" Placeholder="Etiqueta" IsEnabled="False" />
+                </HorizontalStackLayout>
+
+                <Button
+                    x:Name="Plotbtn"
+                    Text="Plot"
+                    SemanticProperties.Hint="Plotea punto"
+                    Clicked="PlotOnCounterClicked"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    HorizontalOptions="FillAndExpand" />    
+
+                <Button
+                    x:Name="Savebtn"
+                    Text="Save"
+                    SemanticProperties.Hint="Save data"
+                    Clicked="SavedOnCounterClicked"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    HorizontalOptions="FillAndExpand" />
+
+                <Button
+                    x:Name="Sharebtn"
+                    Text="Share"
+                    SemanticProperties.Hint="Share data"
+                    Clicked="ShareOnCounterClicked"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    HorizontalOptions="FillAndExpand" />
+
+                <Button
+                    x:Name="Loadbtn"
+                    Text="Load"
+                    SemanticProperties.Hint="Load data"
+                    Clicked="LoadOnCounterClicked"
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    HorizontalOptions="FillAndExpand" />
+            </Grid>
+
             <Label
                 x:Name="DataLabel"
                 SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Counts the number of times you click"
-                FontSize="32"
-                HorizontalOptions="Center" />   
-
+                SemanticProperties.Description="Data Label"
+                FontSize="16"
+                HorizontalOptions="Center" />
 
         </VerticalStackLayout>
     </ScrollView>

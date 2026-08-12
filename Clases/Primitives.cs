@@ -15,7 +15,7 @@ namespace GeoPlotter.Clases
             
         public string toString()
         {
-            return $"Latitud: {Latitud}, Longitud: {Longitud}, Type: {Type}";
+            return $"Latitud: {Latitud}, Longitud: {Longitud}, Altitude: {Altitude} ";
         }
     }
     public class JsonDataList

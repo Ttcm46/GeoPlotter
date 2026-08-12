@@ -20,6 +20,7 @@ namespace GeoPlotter
             // resolve controls by name (safe if XAML source-gen hasn't created fields)
             _labelPicker = this.FindByName<Picker>("LabelPicker");
             _newLabelEntry = this.FindByName<Entry>("NewLabelEntry");
+            
 
         }
 
@@ -93,6 +94,20 @@ namespace GeoPlotter
         /// <param name="e"></param>
         private void LoadOnCounterClicked(object? sender, EventArgs e)
         {
+            LoadData();
+
+            SemanticScreenReader.Announce(Loadbtn.Text);
+        }
+        private async void ShareOnCounterClicked(object? sender, EventArgs e)
+        {
+            var sh = new Automation.Sharing();
+            await sh.ShareText(jsonlist.exportJson(), "GeoPlotter Data");
+            SemanticScreenReader.Announce(Sharebtn.Text);
+        }
+
+
+        private void LoadData()
+        {
             JsonManager.loadJson(out JsonDataList JsonDataListLoaded, "data.json");
 
             // populate picker with labels from loaded data
@@ -109,16 +124,12 @@ namespace GeoPlotter
                             _labelPicker.Items.Add(lbl);
                         }
                     }
+                    DataLabel.Text += item.toString() + "\n";
+
                 }
+                
             }
 
-            SemanticScreenReader.Announce(Loadbtn.Text);
-        }
-        private async void ShareOnCounterClicked(object? sender, EventArgs e)
-        {
-            var sh = new Automation.Sharing();
-            await sh.ShareText(jsonlist.exportJson(), "GeoPlotter Data");
-            SemanticScreenReader.Announce(Sharebtn.Text);
         }
     }
 }

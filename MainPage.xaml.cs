@@ -52,7 +52,7 @@ namespace GeoPlotter
             await Geography.GetCurrentLocation(tmp);
             jsonlist.Add(tmp);
 
-            DataLabel.Text += tmp.toString() + "\n";
+            DataLabel.Text += tmp.ToString() + "\n";
 
             SemanticScreenReader.Announce(Plotbtn.Text);
         }
@@ -124,7 +124,7 @@ namespace GeoPlotter
                             _labelPicker.Items.Add(lbl);
                         }
                     }
-                    DataLabel.Text += item.toString() + "\n";
+                    DataLabel.Text += item.ToString() + "\n";
 
                 }
                 
